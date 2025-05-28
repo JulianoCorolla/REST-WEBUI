@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Product CRUD</title>
+  <link rel="stylesheet" type="text/css" href="style.css"> <style>
+    textarea {
+      width: 100%;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      min-height: 60px;
+    }
+    .product-description {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 4px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Product CRUD</h1> <form id="add-product-form"> <h2>Add Product</h2> <label for="name">Name:</label> <input type="text" id="name" name="name" required> <label for="price">Price:</label> <input type="number" id="price" name="price" required step="0.01"> <label for="description">Description:</label>
+    <textarea id="description" name="description"></textarea>
+    <button type="submit">Add</button> </form>
+
+  <hr>
+
+  <form id="update-product-form">
+    <h2>Update Product</h2>
+    <input type="hidden" id="update-id" name="id">
+    <label for="update-name">Name:</label>
+    <input type="text" id="update-name" name="name" required>
+    <label for="update-price">Price:</label>
+    <input type="number" id="update-price" name="price" required step="0.01">
+    <label for="update-description">Description:</label>
+    <textarea id="update-description" name="description"></textarea>
+    <button type="submit">Update Product</button>
+    <button type="button" id="cancel-update-button" class="cancel-button">Cancelar</button>
+  </form>
+
+  <hr>
+
+  <h2>Product List</h2>
+  <ul id="products"></ul> <script src="app.js"></script> <script>
+    window.addEventListener('load', () => { //
+        if (typeof fetchProducts === 'function') {
+            fetchProducts(); //
+        }
+    });
+  </script>
+</body>
+</html>
